@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #1b2340;
+  --ink-soft: #3d4566;
+  --paper: #f6f7fb;
+  --paper-raised: #ffffff;
+  --amber: #e8a33d;
+  --amber-deep: #c97f1f;
+  --teal: #2f6f6d;
+  --teal-soft: #e4f0ef;
+  --line: #dfe2ee;
+  --text-muted: #6b7086;
+  --sky: #bfe4f8;
+  --sky-soft: #ddf0fb;
+  --purple-deep: #2c1b6b;
+  --coral: #f0654a;
+  --coral-deep: #d84e34;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-amber: var(--amber);
+  --color-amber-deep: var(--amber-deep);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --color-line: var(--line);
+  --color-text-muted: var(--text-muted);
+  --color-sky: var(--sky);
+  --color-sky-soft: var(--sky-soft);
+  --color-purple-deep: var(--purple-deep);
+  --color-coral: var(--coral);
+  --color-coral-deep: var(--coral-deep);
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-body: -apple-system, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+.path-dot {
+  stroke-dasharray: 2 10;
+  stroke-linecap: round;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: reveal 0.7s ease-out both;
+  }
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .menu-drop {
+    animation: menuDrop 0.22s ease-out both;
+  }
+  @keyframes menuDrop {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .btn-pulse {
+    animation: btnPulse 2.4s ease-in-out infinite;
+  }
+  @keyframes btnPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(240, 101, 74, 0.35); }
+    50% { box-shadow: 0 0 0 8px rgba(240, 101, 74, 0); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .menu-drop, .btn-pulse { animation: none; }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
